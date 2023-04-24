@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <title>Analytics</title>
   <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script><script type="text/javascript" src="charts.js"></script>
-  <script src="test.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script type="text/javascript" src="charts.js"></script>
 </head>
 <body>
 <header>
@@ -20,48 +21,18 @@
   </nav>
 </header>
 
-<main>
-
-  <p></p>
-
-  <button id="listRecordsButton">list Records</button>
-
-  <table id="recordTable">
-    <thead>
-    <tr>
-      <th>UUID</th>
-      <th>Device UUID</th>
-      <th>Timestamp</th>
-      <th>Temperature</th>
-      <th>Humidity</th>
-      <th>Battery Voltage</th>
-    </tr>
-    </thead>
-  </table>
+  <select id="choose-device">
+    <option value="1">test1</option>
+    <option value="2" selected="selected">test2</option>
+    <option value="3">test3</option>
+  </select>
 
 
-  <!-- Charts -->
-  <div>
-    <canvas id="temperatureChart"></canvas>
-  </div>
-  <div>
-    <canvas id="humidityChart"></canvas>
-  </div>
-  <div>
-    <canvas id="batteryvChart"></canvas>
-  </div>
-
-
-  <div>
-    <canvas id="ertan"></canvas>
-  </div>
-
-</main>
-
+<!--
 <footer>
   <p>Morn Shuel KSH</p>
 </footer>
-
+-->
 
 </body>
 </html>

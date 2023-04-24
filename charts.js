@@ -1,8 +1,4 @@
-
-
-const url = "http://80.208.228.90:8080/record/list?time=120";
-
-
+const url = "http://80.208.228.90:8080/record/list?time=120000";
 
 fetch(url, {
     method: 'GET',
@@ -18,10 +14,11 @@ fetch(url, {
     .then(data => {
         console.log(data)
         const chartData = {};
+
         const chartOptions = {
             scales: {
                 xAxes: [{
-                    type: 'time',
+                    type: 'timestamp',
                     time: {
                         unit: 'minute'
                     }
@@ -62,6 +59,7 @@ fetch(url, {
         });
 
         // create a chart for each deviceUUID
+        console.log(chartData);
         Object.keys(chartData).forEach(deviceUUID => {
             const canvas = document.createElement('canvas');
             canvas.width = 400;
@@ -95,3 +93,7 @@ fetch(url, {
     .catch(error => {
         console.error(error);
     });
+
+
+
+
