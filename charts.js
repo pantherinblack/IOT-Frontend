@@ -36,6 +36,21 @@ fetch(url, {
         humidity = sortedIndex.map(index => humidity[index]);
         batteryv = sortedIndex.map(index => batteryv[index]);
 
+        console.log("min: " + timestamps[0]);
+        console.log("max: " + timestamps[timestamps.length -1]);
+
+        for (var i = 0; i < timestamps.length; i++) {
+            var date = new Date(timestamps[i]);
+            var formattedDate = date.toLocaleString('en-GB', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+            });
+            timestamps[i] = formattedDate;
+        }
+
         var ctx = document.getElementById('myChart').getContext('2d');
         var chart = new Chart(ctx, {
             type: 'line',
@@ -67,7 +82,7 @@ fetch(url, {
                         type: 'time',
                         time: {
                             displayFormats: {
-                                hour: 'MMM D, hA'
+                                hour: 'dd.MM.yyyy hh:mm'
                             }
                         },
                         scaleLabel: {
