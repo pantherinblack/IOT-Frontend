@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
 const url = "http://80.208.228.90:8080/record/list?time=31";
 
+let selectedButton = document.getElementById("lastMonthBtn");
+
     const dropdown = document.getElementById("choose-device");
     console.log(dropdown);
 
@@ -18,9 +20,13 @@ fetch("http://80.208.228.90:8080/device/list", {
         const option = document.createElement("option");
         option.text = device.deviceName;
         option.value = device.deviceUUID;
-        console.log(device.deviceUUID);
         dropdown.add(option);
     });
+    // For testing
+    const option = document.createElement("option");
+    option.text = "Ertan";
+    option.value = "023-8758604565";
+    dropdown.add(option);
 }).catch(error => {
     console.error(error);
 });
@@ -47,11 +53,15 @@ fetch(url, {
         var batteryv = [];
 
         for (var i = 0; i < data.length; i++) {
-            timestamps.push(new Date(data[i].timestamp));
-            temperatures.push(data[i].temperature);
-            humidity.push(data[i].humidity);
-            batteryv.push(data[i].batteryv);
+            if (data[i].device.deviceUUID == dropdown.value) {
+                console.log(data[i].device.deviceUUID);
+                timestamps.push(new Date(data[i].timestamp));
+                temperatures.push(data[i].temperature);
+                humidity.push(data[i].humidity);
+                batteryv.push(data[i].batteryv);
+            }
         }
+
 
         // sort the arrays by timestamps in ascending order
         var sortedIndex = timestamps.map((value, index) => [value, index])
@@ -150,10 +160,13 @@ function updateChartData(updateurl) {
             var batteryv = [];
 
             for (var i = 0; i < data.length; i++) {
-                timestamps.push(new Date(data[i].timestamp));
-                temperatures.push(data[i].temperature);
-                humidity.push(data[i].humidity);
-                batteryv.push(data[i].batteryv);
+                if (data[i].device.deviceUUID == dropdown.value) {
+                    console.log(data[i].device.deviceUUID);
+                    timestamps.push(new Date(data[i].timestamp));
+                    temperatures.push(data[i].temperature);
+                    humidity.push(data[i].humidity);
+                    batteryv.push(data[i].batteryv);
+                }
             }
 
             // sort the arrays by timestamps in ascending order
@@ -199,6 +212,7 @@ function updateChartData(updateurl) {
     // Add event listeners to each button
     lastDayBtn.addEventListener("click", function() {
         // Handle click for "Last Day" button
+        selectedButton = document.getElementById("lastDayBtn");
         lastDayBtn.disabled = true;
         lastWeekBtn.disabled = false;
         lastMonthBtn.disabled = false;
@@ -208,6 +222,7 @@ function updateChartData(updateurl) {
 
     lastWeekBtn.addEventListener("click", function() {
         // Handle click for "Last Week" button
+        selectedButton = document.getElementById("lastWeekBtn");
         lastDayBtn.disabled = false;
         lastWeekBtn.disabled = true;
         lastMonthBtn.disabled = false;
@@ -217,6 +232,7 @@ function updateChartData(updateurl) {
 
     lastMonthBtn.addEventListener("click", function() {
         // Handle click for "Last Month" button
+        selectedButton = document.getElementById("lastMonthBtn");
         lastDayBtn.disabled = false;
         lastWeekBtn.disabled = false;
         lastMonthBtn.disabled = true;
@@ -226,10 +242,25 @@ function updateChartData(updateurl) {
 
     lastYearBtn.addEventListener("click", function() {
         // Handle click for "Last Year" button
+        selectedButton = document.getElementById("lastYearBtn");
         lastDayBtn.disabled = false;
         lastWeekBtn.disabled = false;
         lastMonthBtn.disabled = false;
         lastYearBtn.disabled = true;
         updateChartData("http://80.208.228.90:8080/record/list?time=365");
     });
+
+    dropdown.addEventListener("change", function() {
+        // code to execute when the dropdown selection changes
+        if(selectedButton == document.getElementById("lastDayBtn")) {
+            updateChartData("http://80.208.228.90:8080/record/list?time=1");
+        }else if(selectedButton == document.getElementById("lastWeekBtn")) {
+            updateChartData("http://80.208.228.90:8080/record/list?time=7");
+        }else if(selectedButton == document.getElementById("lastMonthBtn")) {
+            updateChartData("http://80.208.228.90:8080/record/list?time=31");
+        }else if(selectedButton == document.getElementById("lastYearBtn")) {
+            updateChartData("http://80.208.228.90:8080/record/list?time=365");
+        }
+    });
+
 });
