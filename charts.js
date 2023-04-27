@@ -2,7 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 let selectedButton = document.getElementById("lastMonthBtn");
 
-const dropdown = document.getElementById("choose-device");
+const chooseDeviceDropdown = document.getElementById("choose-device");
+const exportDropdown = document.getElementById("export");
 
 // Fills Dropdown with devices
 fetch("http://80.208.228.90:8080/device/list", {
@@ -18,13 +19,13 @@ fetch("http://80.208.228.90:8080/device/list", {
         const option = document.createElement("option");
         option.text = device.deviceName;
         option.value = device.deviceUUID;
-        dropdown.add(option);
+        chooseDeviceDropdown.add(option);
     });
     // For testing
     const option = document.createElement("option");
     option.text = "Ertan";
     option.value = "023-8758604565";
-    dropdown.add(option);
+    chooseDeviceDropdown.add(option);
 }).catch(error => {
     console.error(error);
 });
@@ -55,7 +56,7 @@ function createChart(url) {
             var batteryv = [];
 
             for (var i = 0; i < data.length; i++) {
-                if (data[i].device.deviceUUID == dropdown.value) {
+                if (data[i].device.deviceUUID == chooseDeviceDropdown.value) {
                     timestamps.push(new Date(data[i].timestamp));
                     temperatures.push(data[i].temperature);
                     humidity.push(data[i].humidity);
@@ -151,6 +152,8 @@ function createChart(url) {
     const lastWeekBtn = document.getElementById("lastWeekBtn");
     const lastMonthBtn = document.getElementById("lastMonthBtn");
     const lastYearBtn = document.getElementById("lastYearBtn");
+    const saveButton = document.getElementById("save");
+
 
     // Add event listeners to each button
     lastDayBtn.addEventListener("click", function() {
@@ -193,7 +196,46 @@ function createChart(url) {
         createChart("http://80.208.228.90:8080/record/list?time=365");
     });
 
-    dropdown.addEventListener("change", function() {
+    saveButton.addEventListener("click", function() {
+        if(exportDropdown.value == "csv") {
+            var canvas = document.getElementById("myChart");
+            var image = canvas.toDataURL("image/png"); // get chart image data
+            var data = image.replace(/^data:image\/png;base64,/, ""); // remove data URL header
+            var chartData = atob(data); // convert base64-encoded data to binary data
+            var parsedData = Papa.parse(chartData, {header: false}); // parse binary data to CSV format
+            var csvData = parsedData.data.map(function(row) { return row.join(","); }).join("\n"); // convert CSV data to string
+            var link = document.createElement("a");
+            link.setAttribute("href", "data:text/csv;charset=utf-8," + encodeURIComponent(csvData));
+            link.setAttribute("download", "chart-data.csv");
+            link.click();
+
+
+        } else if (exportDropdown.value == "xlsx") {
+            var canvas = document.getElementById("myChart");
+            var base64Data = canvas.toDataURL("image/png").split(",")[1];
+            var binaryData = atob(base64Data);
+            var dataArray = Papa.parse(binaryData, {header: false}).data;
+
+            var wb = XLSX.utils.book_new();
+            var ws = XLSX.utils.aoa_to_sheet(dataArray);
+            XLSX.utils.book_append_sheet(wb, ws, "Chart Data");
+
+            var wbout = XLSX.write(wb, {bookType:'xlsx', type:'binary'});
+            function s2ab(s) {
+                var buf = new ArrayBuffer(s.length);
+                var view = new Uint8Array(buf);
+                for (var i=0; i<s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+                return buf;
+            }
+            var blob = new Blob([s2ab(wbout)], {type:"application/octet-stream"});
+            var link = document.createElement("a");
+            link.setAttribute("href", URL.createObjectURL(blob));
+            link.setAttribute("download", "chart-data.xlsx");
+            link.click();
+        }
+    });
+
+    chooseDeviceDropdown.addEventListener("change", function() {
         // code to execute when the dropdown selection changes
         if(selectedButton == document.getElementById("lastDayBtn")) {
             createChart("http://80.208.228.90:8080/record/list?time=1");
