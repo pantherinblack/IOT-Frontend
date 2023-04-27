@@ -21,30 +21,57 @@
   </nav>
 </header>
 
-  <select id="choose-device">
-    <option value="1">test1</option>
-    <option value="2" selected="selected">test2</option>
-    <option value="3">test3</option>
-  </select>
 
+
+
+<style>
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .left {
+    margin-right: auto;
+  }
+  .right {
+    margin-left: auto;
+  }
+</style>
+
+<div class="container">
+  <div class="left">
+    <p style="margin-bottom: 2px;">Gerät</p>
+    <select id="choose-device"></select>
+  </div>
+
+  <div>
+    <p style="margin-bottom: 2px;">&nbsp;</p>
+    <button id="lastDayBtn">Last Day</button>
+    <button id="lastWeekBtn">Last Week</button>
+    <button id="lastMonthBtn">Last Month</button>
+    <button id="lastYearBtn">Last Year</button>
+  </div>
+
+  <div class="right">
+    <p style="margin-bottom: 2px;">Export</p>
+    <select id="export">
+      <option value="1">1</option>
+      <option value="2">2</option>
+    </select>
+  </div>
+</div>
+
+
+<div style="display: flex; justify-content: center;">
+  <div style="width: 90%;">
+    <canvas id="myChart"></canvas>
+  </div>
+</div>
+</body>
 
 <!--
 <footer>
   <p>Morn Shuel KSH</p>
 </footer>
 -->
-
-<button id="lastDayBtn">Last Day</button>
-<button id="lastWeekBtn">Last Week</button>
-<button id="lastMonthBtn">Last Month</button>
-<button id="lastYearBtn">Last Year</button>
-
-
-
-<canvas id="myChart"></canvas>
-
-
-
-
-</body>
 </html>
