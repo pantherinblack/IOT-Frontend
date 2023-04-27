@@ -1,17 +1,15 @@
-/* CSS für Header */
+/* CSS for Header */
 header {
     background-color: #536878;
     color: #C9C9C9;
     padding: 20px;
 }
 
-.container {
+.navigation {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
-/* CSS für Navigation */
 
 nav {
     flex-grow: 1;
@@ -41,7 +39,20 @@ nav a {
     text-decoration: none;
 }
 
-/* Begin CSS Code Footer*/
+/* CSS for Buttons */
+.buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.left {
+    margin-right: auto;
+}
+.right {
+    margin-left: auto;
+}
+
+/* CSS for Footer*/
 footer {
     bottom: 0;
     left: 0;
@@ -94,11 +105,8 @@ ul {
     justify-content: center;
 }
 
-
 .mainlist {
     font-size: larger;
 }
 
-
-/* Ende CSS Code Footer*/
 
