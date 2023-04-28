@@ -209,6 +209,20 @@ function createChart(url) {
             link.setAttribute("download", "chart-data.csv");
             link.click();
 
+        } else if (exportDropdown.value == "json") {
+            var chartData = myChart.data;
+            var jsonData = JSON.stringify(chartData);
+            var blob = new Blob([jsonData], {type: "application/json;charset=utf-8"});
+            var downloadLink = document.createElement("a");
+            downloadLink.href = URL.createObjectURL(blob);
+            downloadLink.download = "chart-data.json";
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+
+
+        } else if (exportDropdown.value == "xml") {
+            // still has to be implemented
 
         } else if (exportDropdown.value == "xlsx") {
             var canvas = document.getElementById("myChart");
