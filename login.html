@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="charts.js"></script>
+    <script type="text/javascript" src="login.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+</head>
+<body>
+<header>
+    <h1>Login</h1>
+    <div class="navigation">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="analytics.html">Analytics</a></li>
+                <li><a href="devices.html">Devices</a></li>
+                <li><a href="imprint.html">Imprint</a></li>
+            </ul>
+        </nav>
+        <ul class="ulLogin">
+            <li><a href="login.html" class="login">Login</a></li>
+        </ul>
+    </div>
+</header>
+
+<div class="login" style="padding-bottom: 400px;">
+    <h3>Anmeldung</h3>
+    <form id="loginForm">
+        <table>
+            <tr>
+                <td><label for="userName">Benutzername</label></td>
+                <td><input id="userName" name="userName" type="text"/>
+            </tr>
+            <tr>
+                <td><label for="password">Password</label></td>
+                <td><input id="password" name="password" type="password"/>
+            </tr>
+            <tr>
+                <td>
+                    <button id="login" type="submit">Anmelden</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <button type="button" id="logoff">Abmelden</button>
+</div>
+</body>
+<footer>
+    <div class= "footer-content">
+        <p>Diese Website wurde für eine Projektarbeit entwickelt</p>
+    </div>
+    <div class="footer-bottom">
+        <p>copyright &copy; 2023 Diego Fantino, Kevin Stupar, Andras Tarlos.</p>
+        <p> designed by Diego Fantino</p>
+    </div>
+</footer>
+</html>
