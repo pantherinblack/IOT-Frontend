@@ -8,7 +8,6 @@ function sendLogin(form) {
     $
         .ajax( {
             url: "http://80.208.228.90:8080/auth/login",
-            dataType: "text",
             type: "GET",
             data: $("#loginForm").serialize()
         })
@@ -16,7 +15,7 @@ function sendLogin(form) {
             window.location.href = "index.html";
         })
         .fail(function (xhr, status, errorThrown) {
-            if (xhr.status == 404) {
+            if (xhr.status != 200) {
                 $("#message").text("Benutzername/Passwort unbekannt");
             } else {
                 $("#message").text("Es ist ein Fehler aufgetreten");
@@ -28,14 +27,11 @@ function sendLogin(form) {
 function sendLogoff() {
     $
         .ajax( {
-            url: "http://80.208.228.90:8080/auth/logoff",
-            dataType: "text",
+            url: "http://80.208.228.90:8080/auth/logout",
             type: "DELETE",
         })
         .done(function () {
             window.location.href = "analytics.html";
-        })
-        .fail(function (xhr, status, errorThrown) {
         })
 }
 
