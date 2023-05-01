@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Analytics</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/javascript" src="updatedevice.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+</head>
+<body>
+
+<header>
+    <h1>Analytics</h1>
+    <div class="navigation">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="analytics.html">Analytics</a></li>
+                <li><a href="devices.html">Devices</a></li>
+                <li><a href="imprint.html">Imprint</a></li>
+            </ul>
+        </nav>
+        <ul class="ulLogin">
+            <li><a href="login.html" class="login">Login</a></li>
+        </ul>
+    </div>
+</header>
+
+<form style="padding-bottom: 200px; margin-top: 20px;" class="updateDevice" onsubmit="this.reset()" action="devices.html">
+    <table>
+        <tr>
+            <td><label for="device-name">Device Name:</label></td>
+            <td><input type="text" id="device-name" name="device-name"></td>
+        </tr>
+        <tr>
+            <td><label for="device-uuid">Device UUID:</label></td>
+            <td><input type="text" id="device-uuid" name="device-uuid" disabled></td>
+        </tr>
+        <tr>
+            <td><label for="latitude">Latitude:</label></td>
+            <td><input type="number" id="latitude" name="latitude" step="0.000001"></td>
+        </tr>
+        <tr>
+            <td><label for="longitude">Longitude:</label></td>
+            <td><input type="number" id="longitude" name="longitude" step="0.000001"></td>
+        </tr>
+    </table>
+    <input type="submit" value="Submit" id="submit">
+    <input type="button" value="cancel" id="cancel">
+</form>
+
+
+
+</body>
+
+
+<footer>
+    <div class= "footer-content">
+        <p>Diese Website wurde für eine Projektarbeit entwickelt</p>
+    </div>
+    <div class="footer-bottom">
+        <p>copyright &copy; 2023 Diego Fantino, Kevin Stupar, Andras Tarlos.</p>
+        <p> designed by Diego Fantino</p>
+    </div>
+</footer>
+</html>

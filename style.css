@@ -109,4 +109,16 @@ ul {
     font-size: larger;
 }
 
+/* Devices */
+.deviceTable th,
+.deviceTable td {
+    padding: 4px 6px; /* increase padding for better readability */
+    text-align: left; /* align text to left for better readability */
+}
+
+.deviceTable th:not(:last-child),
+.deviceTable td:not(:last-child) {
+    padding-right: 8px; /* increase right padding to increase distance between columns */
+}
+
 

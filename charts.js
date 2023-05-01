@@ -21,11 +21,6 @@ fetch("http://80.208.228.90:8080/device/list", {
         option.value = device.deviceUUID;
         chooseDeviceDropdown.add(option);
     });
-    // For testing
-    const option = document.createElement("option");
-    option.text = "Ertan";
-    option.value = "023-8758604565";
-    chooseDeviceDropdown.add(option);
 }).catch(error => {
     console.error(error);
 });
