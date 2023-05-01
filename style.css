@@ -1,8 +1,13 @@
 /* CSS for Header */
+* {
+    box-sizing: border-box;
+}
+
 header {
     background-color: #536878;
     color: #C9C9C9;
     padding: 20px;
+    max-width: 100%;
 }
 
 .navigation {
@@ -63,6 +68,7 @@ footer {
     font-family: "Open Sans";
     padding-top: 10px;
     color: #fff;
+    max-width: 100%;
 }
 .footer-content{
     display: flex;
@@ -86,6 +92,7 @@ footer {
     text-align: center;
     background-color: #e9edf6;
     color: #1A2B3C;
+    max-width: 100%;
 }
 .footer-bottom p {
     font-size: 14px;
@@ -120,5 +127,3 @@ ul {
 .deviceTable td:not(:last-child) {
     padding-right: 8px; /* increase right padding to increase distance between columns */
 }
-
-
