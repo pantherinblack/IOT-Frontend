@@ -1,13 +1,21 @@
 /* CSS for Header */
 * {
-    box-sizing: border-box;
+    margin: 0px;
+}
+
+main {
+    margin-left: 8px;
+    margin-right: 8px;
 }
 
 header {
     background-color: #536878;
     color: #C9C9C9;
-    padding: 20px;
-    max-width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 8px;
 }
 
 .navigation {
@@ -49,6 +57,7 @@ nav a {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-top: 10px;
 }
 .left {
     margin-right: auto;
@@ -59,18 +68,14 @@ nav a {
 
 /* CSS for Footer*/
 footer {
-    bottom: 0;
-    left: 0;
-    right: 0;
     background-color: white;
     height: auto;
-    width: 100vw;
     font-family: "Open Sans";
     padding-top: 10px;
     color: #fff;
-    max-width: 100%;
 }
-.footer-content{
+
+.footer-content {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -78,22 +83,28 @@ footer {
     text-align: center;
     margin-top: 10px;
     background-color: #536878;
-    color:  #C9C9C9;
+    color: #C9C9C9;
+    margin-left: 8px;
+    margin-right: 8px;
 }
+
 .footer-content p {
     max-width: 500px;
     margin: 5px auto;
     line-height: 28px;
     font-size: 14px;
 }
+
 .footer-bottom {
-    width: 100vw;
     padding: 20px 0;
     text-align: center;
     background-color: #e9edf6;
     color: #1A2B3C;
-    max-width: 100%;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-bottom: 8px;
 }
+
 .footer-bottom p {
     font-size: 14px;
     word-spacing: 1px;
@@ -102,6 +113,7 @@ footer {
 .footer-bottom td {
     text-align: center;
 }
+
 ul {
     list-style-type: none;
 }

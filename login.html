@@ -15,7 +15,7 @@
 <body>
 <header>
     <h1>Login</h1>
-    <div class="navigation">
+    <div class="buttonContainer">
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -29,28 +29,29 @@
         </ul>
     </div>
 </header>
-
-<div class="login" style="padding-bottom: 400px;">
-    <h3>Anmeldung</h3>
-    <form id="loginForm">
-        <table>
-            <tr>
-                <td><label for="userName">Benutzername</label></td>
-                <td><input id="userName" name="userName" type="text"/>
-            </tr>
-            <tr>
-                <td><label for="password">Password</label></td>
-                <td><input id="password" name="password" type="password"/>
-            </tr>
-            <tr>
-                <td>
-                    <button id="login" type="submit">Anmelden</button>
-                </td>
-            </tr>
-        </table>
-    </form>
-    <button type="button" id="logoff">Abmelden</button>
-</div>
+<main>
+    <div class="login" style="padding-bottom: 400px;">
+        <h3>Anmeldung</h3>
+        <form id="loginForm">
+            <table>
+                <tr>
+                    <td><label for="userName">Benutzername</label></td>
+                    <td><input id="userName" name="userName" type="text"/>
+                </tr>
+                <tr>
+                    <td><label for="password">Password</label></td>
+                    <td><input id="password" name="password" type="password"/>
+                </tr>
+                <tr>
+                    <td>
+                        <button id="login" type="submit">Anmelden</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <button type="button" id="logoff">Abmelden</button>
+    </div>
+</main>
 <footer style="position: absolute;bottom: 0;width: 100%;">
     <div class= "footer-content">
         <p>Diese Website wurde für eine Projektarbeit entwickelt</p>
