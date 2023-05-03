@@ -15,9 +15,13 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(data => {
                 console.log(data);
 
-                const table = document.querySelector('.deviceTable');
+                const main = document.querySelector('main'); // select main element
 
-// Create table headers
+                // Create table element
+                const table = document.createElement('table');
+                table.classList.add('deviceTable');
+
+                // Create table headers
                 const headers = ['Name', 'UUID', 'Latitude', 'Longitude'];
                 const headerRow = document.createElement('tr');
                 headers.forEach(header => {
@@ -27,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
                 table.appendChild(headerRow);
 
-// Create table rows for each device
+                // Create table rows for each device
                 data.forEach(device => {
                     const tr = document.createElement('tr');
 
@@ -89,12 +93,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     });
                     deleteTd.appendChild(deleteBtn);
                     tr.appendChild(deleteTd);
+
                     // Add row to table
                     table.appendChild(tr);
                 });
 
-// Add table to the DOM
-                document.body.appendChild(table);
+                // Add table to the main element
+                main.appendChild(table);
 
                 // Create Add button
                 const addBtn = document.createElement('button');
@@ -105,9 +110,25 @@ document.addEventListener("DOMContentLoaded", () => {
                     window.location.href = "insertdevice.html";
                 });
 
-// Add button after table
-                table.parentNode.appendChild(addBtn);
+                // Add button after table
+                main.appendChild(addBtn);
 
-            });
+            }).finally(() => {
+            generateFooter();
+        });
     }
 })
+
+function generateFooter() {
+    var footer = document.createElement('footer');
+    footer.innerHTML = `
+        <div class="footer-content">
+            <p>Diese Website wurde für eine Projektarbeit entwickelt</p>
+        </div>
+        <div class="footer-bottom">
+            <p>copyright &copy; 2023 Diego Fantino, Kevin Stupar, Andras Tarlos.</p>
+            <p> designed by Diego Fantino</p>
+        </div>
+    `;
+    document.body.appendChild(footer);
+}
