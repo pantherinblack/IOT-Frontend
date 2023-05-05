@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "devices.html";
     });
 
+    generateFooter();
+
 })
 
 function submit() {
@@ -53,5 +55,19 @@ function generateUUID() {
 
     uuid = 'eui-' + uuid;
     return uuid;
+}
+
+function generateFooter() {
+    var footer = document.createElement('footer');
+    footer.innerHTML = `
+        <div class="footer-content">
+            <p>Diese Website wurde für eine Projektarbeit entwickelt</p>
+        </div>
+        <div class="footer-bottom">
+            <p>copyright &copy; 2023 Diego Fantino, Kevin Stupar, Andras Tarlos.</p>
+            <p> designed by Diego Fantino</p>
+        </div>
+    `;
+    document.body.appendChild(footer);
 }
 

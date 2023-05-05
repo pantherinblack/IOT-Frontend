@@ -141,7 +141,7 @@ ul {
 }
 
 /* CSS for Login Form */
-.loginForm {
+.loginForm, .updateDevice, .insertDevice {
     max-width: 400px;
     margin: 0 auto;
     background-color: #f1f1f1;
@@ -150,19 +150,23 @@ ul {
     margin-top: 20px;
 }
 
-.loginForm h3 {
+.loginForm h3,
+.updateDevice h3,
+.insertDevice h3{
     text-align: center;
     margin-bottom: 20px;
 }
 
-.loginForm label {
+.loginForm label, .updateDevice label, .insertDevice label{
     display: inline-block;
     margin-bottom: 5px;
     padding-right: 10px;
 }
 
 .loginForm input[type="text"],
-.loginForm input[type="password"] {
+.loginForm input[type="password"],
+.updateDevice, input,
+.insertDevice input{
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
@@ -170,8 +174,24 @@ ul {
     border: none;
 }
 
-.loginForm button[type="submit"] {
+.loginForm button[type="submit"],
+.updateDevice input[type="submit"],
+.insertDevice input[type="submit"]{
     background-color: #536878;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    display: block; /* or inline-block */
+    margin: 0 auto; /* This centers the button horizontally */
+    text-align: center; /* This centers the content inside the button */
+}
+
+
+.updateDevice input[type="button"],
+.insertDevice input[type="button"]{
+    background-color: #a41313; /*Possible colors: #e74c3c (a darker shade of red) #c0392b (a deep shade of red) #2c3e50 (a dark navy blue)*/
     color: #fff;
     border: none;
     padding: 10px 20px;

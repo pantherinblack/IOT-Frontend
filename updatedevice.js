@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("started");
 // Extract the URL parameters and set the values of the form fields
     const urlParams = new URLSearchParams(window.location.search);
     const name = urlParams.get('deviceName');
@@ -23,6 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
         // Code to execute when the button is clicked
         window.location.href = "devices.html";
     });
+
+    generateFooter();
 })
 
 
@@ -64,3 +65,16 @@ function submit() {
     form.reset();
 }
 
+function generateFooter() {
+    var footer = document.createElement('footer');
+    footer.innerHTML = `
+        <div class="footer-content">
+            <p>Diese Website wurde für eine Projektarbeit entwickelt</p>
+        </div>
+        <div class="footer-bottom">
+            <p>copyright &copy; 2023 Diego Fantino, Kevin Stupar, Andras Tarlos.</p>
+            <p> designed by Diego Fantino</p>
+        </div>
+    `;
+    document.body.appendChild(footer);
+}
