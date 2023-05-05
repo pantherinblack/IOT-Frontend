@@ -1,6 +1,5 @@
 $(document).ready(function () {
     $("#loginForm").submit(sendLogin);
-    $("#logoff").click(sendLogoff);
 });
 
 function sendLogin(form) {
@@ -21,17 +20,6 @@ function sendLogin(form) {
                 $("#message").text("Es ist ein Fehler aufgetreten");
             }
 
-        })
-}
-
-function sendLogoff() {
-    $
-        .ajax( {
-            url: "http://80.208.228.90:8080/auth/logout",
-            type: "DELETE",
-        })
-        .done(function () {
-            window.location.href = "analytics.html";
         })
 }
 
