@@ -214,3 +214,11 @@ ul {
     text-align: center; /* This centers the content inside the button */
 }
 
+/* for index */
+h2{
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 10px;
+}
