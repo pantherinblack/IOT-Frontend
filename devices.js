@@ -13,8 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 return response.json();
             })
             .then(data => {
-                console.log(data);
-
                 const main = document.querySelector('main'); // select main element
 
                 // Create table element
@@ -104,6 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Create Add button
                 const addBtn = document.createElement('button');
                 addBtn.textContent = 'Add Device';
+                addBtn.id = "addBtn";
                 addBtn.addEventListener('click', () => {
                     console.log('Adding new device');
                     // Add your code to handle adding a new device here

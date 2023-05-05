@@ -140,6 +140,18 @@ ul {
     padding-right: 8px; /* increase right padding to increase distance between columns */
 }
 
+.deviceTable {
+    margin: 0 auto;
+    padding: 0px;
+    width: 70%;
+}
+#addBtn {
+    display: block;
+    margin: 0 auto;
+    width: 10%;
+}
+
+
 /* CSS for Login Form */
 .loginForm, .updateDevice, .insertDevice {
     max-width: 400px;
