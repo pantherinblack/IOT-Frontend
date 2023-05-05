@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Login</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="login.js"></script>
     <script type="text/javascript" src="logoff.js"></script>
@@ -31,7 +30,7 @@
     </div>
 </header>
 <main>
-    <div class="login" style="padding-bottom: 400px;">
+    <div class="loginForm">
         <h3>Anmeldung</h3>
         <form id="loginForm">
             <table>
@@ -43,12 +42,8 @@
                     <td><label for="password">Password</label></td>
                     <td><input id="password" name="password" type="password"/>
                 </tr>
-                <tr>
-                    <td>
-                        <button id="login" type="submit">Anmelden</button>
-                    </td>
-                </tr>
             </table>
+            <button id="login" type="submit">Anmelden</button>
         </form>
     </div>
 </main>
