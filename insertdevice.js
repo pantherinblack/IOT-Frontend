@@ -61,7 +61,7 @@ function generateFooter() {
     var footer = document.createElement('footer');
     footer.innerHTML = `
         <div class="footer-content">
-            <p>Diese Website wurde für eine Projektarbeit entwickelt</p>
+            <p>This website was developed for a project work</p>
         </div>
         <div class="footer-bottom">
             <p>copyright &copy; 2023 Diego Fantino, Kevin Stupar, Andras Tarlos.</p>
