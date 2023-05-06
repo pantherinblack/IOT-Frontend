@@ -6,7 +6,7 @@ const chooseDeviceDropdown = document.getElementById("choose-device");
 const exportDropdown = document.getElementById("export");
 
 // Fills Dropdown with devices
-fetch("http://80.208.228.90:8080/device/list", {
+fetch("https://80.208.228.90:8080/device/list", {
     method: 'GET',
     headers: {'Content-Type': 'application/json'}
 }).then(response => {
@@ -28,7 +28,7 @@ fetch("http://80.208.228.90:8080/device/list", {
 
 const b = document.getElementById("lastMonthBtn");
 b.disabled = true;
-createChart("http://80.208.228.90:8080/record/list?time=31");
+createChart("https://80.208.228.90:8080/record/list?time=31");
 
 function createChart(url) {
     fetch(url, {
@@ -158,7 +158,7 @@ function createChart(url) {
         lastWeekBtn.disabled = false;
         lastMonthBtn.disabled = false;
         lastYearBtn.disabled = false;
-        createChart("http://80.208.228.90:8080/record/list?time=1");
+        createChart("https://80.208.228.90:8080/record/list?time=1");
     });
 
     lastWeekBtn.addEventListener("click", function() {
@@ -168,7 +168,7 @@ function createChart(url) {
         lastWeekBtn.disabled = true;
         lastMonthBtn.disabled = false;
         lastYearBtn.disabled = false;
-        createChart("http://80.208.228.90:8080/record/list?time=7");
+        createChart("https://80.208.228.90:8080/record/list?time=7");
     });
 
     lastMonthBtn.addEventListener("click", function() {
@@ -178,7 +178,7 @@ function createChart(url) {
         lastWeekBtn.disabled = false;
         lastMonthBtn.disabled = true;
         lastYearBtn.disabled = false;
-        createChart("http://80.208.228.90:8080/record/list?time=31");
+        createChart("https://80.208.228.90:8080/record/list?time=31");
     });
 
     lastYearBtn.addEventListener("click", function() {
@@ -188,7 +188,7 @@ function createChart(url) {
         lastWeekBtn.disabled = false;
         lastMonthBtn.disabled = false;
         lastYearBtn.disabled = true;
-        createChart("http://80.208.228.90:8080/record/list?time=365");
+        createChart("https://80.208.228.90:8080/record/list?time=365");
     });
 
     saveButton.addEventListener("click", function() {
@@ -247,13 +247,13 @@ function createChart(url) {
     chooseDeviceDropdown.addEventListener("change", function() {
         // code to execute when the dropdown selection changes
         if(selectedButton == document.getElementById("lastDayBtn")) {
-            createChart("http://80.208.228.90:8080/record/list?time=1");
+            createChart("https://80.208.228.90:8080/record/list?time=1");
         }else if(selectedButton == document.getElementById("lastWeekBtn")) {
-            createChart("http://80.208.228.90:8080/record/list?time=7");
+            createChart("https://80.208.228.90:8080/record/list?time=7");
         }else if(selectedButton == document.getElementById("lastMonthBtn")) {
-            createChart("http://80.208.228.90:8080/record/list?time=31");
+            createChart("https://80.208.228.90:8080/record/list?time=31");
         }else if(selectedButton == document.getElementById("lastYearBtn")) {
-            createChart("http://80.208.228.90:8080/record/list?time=365");
+            createChart("https://80.208.228.90:8080/record/list?time=365");
         }
     });
 

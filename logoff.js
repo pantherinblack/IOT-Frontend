@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function sendLogoff() {
     $
         .ajax( {
-            url: "http://80.208.228.90:8080/auth/logout",
+            url: "https://80.208.228.90:8080/auth/logout",
             type: "DELETE",
         })
         .done(function () {

@@ -24,7 +24,7 @@ function submit() {
     const latitude = document.getElementById("latitude").value;
     const longitude = document.getElementById("longitude").value;
 
-    fetch('http://80.208.228.90:8080/device/insert', {
+    fetch('https://80.208.228.90:8080/device/insert', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

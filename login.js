@@ -6,15 +6,14 @@ function sendLogin(form) {
     form.preventDefault();
     $
         .ajax( {
-            url: "http://80.208.228.90:8080/auth/login",
+            url: "https://80.208.228.90:8080/auth/login",
             type: "GET",
             data: $("#loginForm").serialize()
         })
         .done(function () {
-            window.location.href = "index.html";
         })
         .fail(function (xhr, status, errorThrown) {
-            if (xhr.status != 200) {
+            if (xhr.status === 403) {
                 $("#message").text("Benutzername/Passwort unbekannt");
             } else {
                 $("#message").text("Es ist ein Fehler aufgetreten");
