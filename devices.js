@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Call the function 'listDevices' to retrieve device data and display it in a table
     listDevices();
     function listDevices() {
-        fetch("http://80.208.228.90:8080/device/list", {
+        fetch("https://80.208.228.90:8080/device/list", {
             method: 'GET',
             headers: {'Content-Type': 'application/json'}
         })
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     deleteBtn.addEventListener('click', () => {
                         console.log(`Editing device with UUID ${device.deviceUUID}`);
                         // Add your code to handle editing here
-                        fetch(`http://80.208.228.90:8080/device/delete/${device.deviceUUID}`, {
+                        fetch(`https://80.208.228.90:8080/device/delete/${device.deviceUUID}`, {
                             method: 'DELETE'
                         }).then(response => {
                             if (!response.ok) {
