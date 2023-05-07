@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Call the function 'listDevices' to retrieve device data and display it in a table
     listDevices();
     function listDevices() {
-        fetch("https://80.208.228.90:8080/device/list", {
+        fetch("http://80.208.228.90:8080/device/list", {
             method: 'GET',
             headers: {'Content-Type': 'application/json'}
         })
