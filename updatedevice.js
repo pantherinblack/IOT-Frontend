@@ -1,42 +1,51 @@
+// Author: Diego Fantino
+// Version: 1.0
+// Date: 2023-05-07
+
+// This sets up an event listener for when the DOM content is fully loaded
 document.addEventListener("DOMContentLoaded", () => {
-// Extract the URL parameters and set the values of the form fields
+    // This gets the query parameters from the URL
     const urlParams = new URLSearchParams(window.location.search);
+    // These variables get the values of the query parameters
     const name = urlParams.get('deviceName');
     const uuid = urlParams.get('deviceUUID');
     const latitude = urlParams.get('latitude');
     const longitude = urlParams.get('longitude');
 
+    // These lines populate the input fields with the values of the query parameters
     document.getElementById("device-name").value = name;
     document.getElementById("device-uuid").value = uuid;
     document.getElementById("latitude").value = latitude;
     document.getElementById("longitude").value = longitude;
 
+    // This sets up an event listener for when the "submit" button is clicked
     const myButton = document.getElementById("submit");
     myButton.addEventListener("click", function() {
-        // Code to be executed when the button is clicked
         submit();
     });
 
+    // This sets up an event listener for when the "cancel" button is clicked
     const cancelButton = document.getElementById("cancel");
     cancelButton.addEventListener("click", function() {
-        // Code to execute when the button is clicked
         window.location.href = "devices.html";
     });
 
+    // This generates and appends the page footer
     generateFooter();
-})
+});
 
-
+// This function sends an update request to the server
 function submit() {
-    console.log("Diegpo");
-
+    // This gets the form element
     const form = document.querySelector('.updateDevice');
 
+    // These lines get the values of the input fields
     const name = document.getElementById("device-name").value;
     const uuid = document.getElementById("device-uuid").value;
     const latitude = document.getElementById("latitude").value;
     const longitude = document.getElementById("longitude").value;
 
+    // This sends a PUT request to the specified URL with the updated device information
     fetch('http://80.208.228.90:8080/device/update', {
         method: 'PUT',
         headers: {
@@ -49,6 +58,7 @@ function submit() {
             "latitude": longitude
         })
     })
+        // This function is called if the fetch request succeeds
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -56,15 +66,18 @@ function submit() {
             return response.json();
         })
         .then(data => {
-            console.log(data);
+            // do something with the response data, if needed
         })
+        // This function is called if there is an error with the fetch request
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
         });
 
+    // This resets the form input fields
     form.reset();
 }
 
+// This function generates and appends the page footer
 function generateFooter() {
     var footer = document.createElement('footer');
     footer.innerHTML = `

@@ -1,6 +1,12 @@
-document.addEventListener("DOMContentLoaded", () => {
-    listDevices();
+// Author: Diego Fantino
+// Version: 1.0
+// Date: 2023-05-07
 
+// This code adds an event listener for the 'DOMContentLoaded' event
+// that calls the function 'listDevices' when the page loads
+document.addEventListener("DOMContentLoaded", () => {
+// Call the function 'listDevices' to retrieve device data and display it in a table
+    listDevices();
     function listDevices() {
         fetch("http://80.208.228.90:8080/device/list", {
             method: 'GET',
@@ -118,8 +124,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 })
 
+// Generates a footer
 function generateFooter() {
+    // Create a new "footer" element and assign it to the "footer" variable
     var footer = document.createElement('footer');
+
+    // Set the innerHTML of the "footer" element to a template literal
     footer.innerHTML = `
         <div class="footer-content">
             <p>This website was developed for a project work</p>
@@ -129,5 +139,7 @@ function generateFooter() {
             <p> designed by Diego Fantino</p>
         </div>
     `;
+
+    // Append the "footer" element to the document body
     document.body.appendChild(footer);
 }
